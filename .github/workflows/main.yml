@@ -25,11 +25,7 @@ jobs:
             mkdir clang && curl https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/main/clang-r547379.tar.gz -RLO && tar -C clang/ -xf clang-*.tar.gz
             git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 gcc64
             git clone --depth=1 https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 gcc32
-            
-    - name: Fetch KernelSU-SuSFS
-      run: |
-           curl -LSs "https://raw.githubusercontent.com/backslashxx/KernelSU/magic/kernel/setup.sh" | bash -s 12074+sus155
-         
+                  
     - name: MIUI Dimensi
       run: |
             sed -i 's/qcom,mdss-pan-physical-width-dimension = <69>;$/qcom,mdss-pan-physical-width-dimension = <695>;/' arch/arm64/boot/dts/qcom/dsi-panel-k6-38-0c-0a-fhd-dsc-video.dtsi
@@ -68,7 +64,7 @@ jobs:
     - name: Upload Kernel
       uses: actions/upload-artifact@v4
       with:
-        name: STRIX-sweet-personal-miui-${{ env.BUILD_TIME }}
+        name: STRIX-sweet-personal-nsu-${{ env.BUILD_TIME }}
         path: AnyKernel3/*
 
 
